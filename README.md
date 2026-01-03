@@ -1,3 +1,4 @@
+sorry for the late because there light cut off in my area for 2 hour so that why i am late to submit it
 # 🧑‍💼 Dayflow – Human Resource Management System (HRMS)
 
 Dayflow HRMS is a full-stack Human Resource Management System designed to digitize and streamline core HR operations such as employee management, attendance tracking, leave handling, and payroll processing.  
@@ -69,7 +70,8 @@ npm install
 ```
 
 ### step 3:- server setup
-```cd ../server
+```
+cd ../server
 npm install
 ```
 
@@ -78,8 +80,9 @@ DATABASE_URL=your_database_url
 JWT_SECRET=your_secret_key
 
 ## step 5:- run the project
-```cd server
-npm run dev
-cd client
+```
+cd server
+nodemon index.js
+cd ../client
 npm run dev
 ```
