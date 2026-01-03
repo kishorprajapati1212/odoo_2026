@@ -1,0 +1,8 @@
+--> Save the database models / schemas
+
+Defines database tables/schemas.
+Example: User model, Product model.
+
+Example file: User.js
+
+const User = { name: String, email: String };

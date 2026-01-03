@@ -1,0 +1,8 @@
+--> middleware (auth, error-handling, logging etc.)
+
+Runs before the controller.
+Used for authentication, validation, error-handling.
+
+Example file: auth.js
+
+export const checkAuth = (req, res, next) => next();

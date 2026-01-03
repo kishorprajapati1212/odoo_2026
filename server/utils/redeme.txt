@@ -1,0 +1,7 @@
+--> helper/util functions for backend
+
+Contains helper functions used across backend.
+
+Example file: generateToken.js
+
+export const generateToken = (id) => "signed-jwt";

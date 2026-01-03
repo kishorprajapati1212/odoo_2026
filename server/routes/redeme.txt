@@ -1,0 +1,10 @@
+--> api route definitions / endpoints
+
+Defines API endpoints.
+Example:
+GET /users → Get all users
+POST /login → Login user
+
+Example file: userRoutes.js
+
+router.get("/users", getUsers);

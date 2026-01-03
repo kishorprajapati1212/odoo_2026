@@ -1,0 +1,83 @@
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  user_id   Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      String
+  status    Boolean  @default(true)
+
+  employee  Employee?
+  approvedLeaves Leave[] @relation("ApprovedLeaves")
+
+  createdAt DateTime @default(now())
+}
+
+model Employee {
+  employee_id Int      @id @default(autoincrement())
+  user_id     Int      @unique
+  name        String
+  phone       String
+  address     String
+  designation String
+  department  String
+  join_date   DateTime
+
+  user        User     @relation(fields: [user_id], references: [user_id])
+  attendance  Attendance[]
+  leaves      Leave[]
+  payroll     Payroll[]
+
+  createdAt   DateTime @default(now())
+}
+
+model Attendance {
+  attendance_id Int      @id @default(autoincrement())
+  employee_id   Int
+  date          DateTime
+  check_in      DateTime?
+  check_out     DateTime?
+  status        String
+
+  employee Employee @relation(fields: [employee_id], references: [employee_id])
+
+  @@unique([employee_id, date])
+}
+
+model Leave {
+  leave_id     Int      @id @default(autoincrement())
+  employee_id  Int
+  leave_type   String
+  start_date   DateTime
+  end_date     DateTime
+  reason       String
+  status       String
+  approved_by  Int?
+
+  employee Employee @relation(fields: [employee_id], references: [employee_id])
+  approver User?    @relation("ApprovedLeaves", fields: [approved_by], references: [user_id])
+
+  createdAt DateTime @default(now())
+}
+
+model Payroll {
+  payroll_id   Int      @id @default(autoincrement())
+  employee_id  Int
+  basic_salary Float
+  allowances   Float
+  deductions   Float
+  net_salary   Float
+  month        String
+
+  employee Employee @relation(fields: [employee_id], references: [employee_id])
+
+  @@unique([employee_id, month])
+}

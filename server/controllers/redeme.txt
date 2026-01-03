@@ -1,0 +1,8 @@
+--> Handle business logic 
+
+Handles main logic for every API request.
+Example: login, register, create task, update data.
+
+Example file: userController.js
+
+export const getUsers = () => User.find();
