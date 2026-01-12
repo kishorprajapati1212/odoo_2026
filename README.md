@@ -1,4 +1,4 @@
-sorry for the late because there light cut off in my area for 2 hour so that why i am late to submit it
+
 # 🧑‍💼 Dayflow – Human Resource Management System (HRMS)
 
 Dayflow HRMS is a full-stack Human Resource Management System designed to digitize and streamline core HR operations such as employee management, attendance tracking, leave handling, and payroll processing.  
