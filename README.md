@@ -1,3 +1,27 @@
+<!-- nomat24132@bitmens.com -->
+
+Run migrations to actually create the table in your Neon DB:
+
+npx prisma migrate dev --name init
+
+Regenerate Prisma client (just in case):
+
+npx prisma generate
+
+
+
+
+npx prisma migrate dev --name init
+npx prisma generate
+npx prisma db seed
+
+add seeder in the package js 
+"prisma": {
+  "seed": "node prisma/seed.js"
+}
+
+
+
 
 # 🧑‍💼 Dayflow – Human Resource Management System (HRMS)
 
